@@ -7,3 +7,14 @@ http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-fre
 http://bl.ocks.org/mbostock/4060606  
 https://github.com/octokit/octokit.rb  
 https://developer.github.com/v3/search/  
+
+
+https://api.github.com/search/repositories?q=language:ruby
+  ||> contributors_url
+  ||> login
+  ||> https://api.github.com/users/{login}
+  ||> location
+  ||> filter non_us
+  ||> reduce by frequency
+  ||> map to color code
+  ||> place on svg, recording non-matches
