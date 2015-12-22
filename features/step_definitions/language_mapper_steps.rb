@@ -11,7 +11,7 @@ Given(/^a Github API Client$/) do
 end
 
 When(/^I create a language heatmap for (.*)$/) do |language|
-	@output_file_name = LanguageMapper.new(client: client).map_language(language)
+	@output_file_name = LanguageMapper.new(client: @client).map_language(language)
 end
 
 Then(/^the heatmap is awesome sauce$/) do
