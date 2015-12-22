@@ -1,4 +1,5 @@
 require 'octokit'
+require 'language_mapper/location_finder'
 
 class LanguageMapper
 	def initialize(opts = {})

@@ -6,10 +6,6 @@ describe LanguageMapper do
   let(:output_file_name) { '/tmp/my_file.map' }
 
 	let(:client) { double('Octokit::Client') }
-	# let(:repo_lister) { double('RepoLister') }
-	# let(:contributor_mapper) { double('ContributorMapper') }
-	# let(:user_examiner) { double('UserExaminer') }
-	# let(:location_clusterer) { double('LocationClusterer') }
 	let(:location_finder) { double('LocationFinder') }
 	let(:mapper) { double('Mapper') }
 
