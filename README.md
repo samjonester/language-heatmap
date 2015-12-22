@@ -20,3 +20,8 @@ https://api.github.com/search/repositories?q=language:ruby
   ||> map to color code
   ||> place on svg, recording non-matches
 ```
+
+```
+client = Octokit::Client.new(login: 'username', password: 'pword')
+client.search_repos("language:ruby").items.map{ |repo| repo[:full_name] }.map{ |name| client.contributors(name) }.flatten.map{ |contributor| contributor[:login] }.map{ |login| client.user(login) }.map{ |user| user[:location] }
+```
