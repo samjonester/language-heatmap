@@ -1,9 +1,11 @@
+require 'language_mapper/location_finder/repo_lister'
+
 class LocationFinder
 	
 	def initialize(opts = {})
 		@client = opts[:client] || Octokit::Client.new
-		@repo_lister = opts[:repo_lister] || RepoLister.new(client: client)
-		@contributor_examiner = opts[:contributor_examiner] || ContributorExaminer.new(client: client)
+		@repo_lister = opts[:repo_lister] || RepoLister.new(client: @client)
+		@contributor_examiner = opts[:contributor_examiner] || ContributorExaminer.new(client: @client)
 		@user_finder = opts[:user_finder] || UserFinder.new(client: client)
 		@frequency_clusterer = opts[:frequency_clusterer] || FrequencyClusterer.new
 	end

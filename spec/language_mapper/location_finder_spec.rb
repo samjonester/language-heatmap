@@ -14,9 +14,8 @@ describe LocationFinder do
 	let(:contributor_examiner) { double('ContributorExaminer') }
 	let(:user_finder) { double('UserFinder') }
 	let(:frequency_clusterer) { double('FrequencyClusterer') }
-	let(:client) { double('client') }
 
-	subject { LocationFinder.new(client: client, repo_lister: repo_lister, contributor_examiner: contributor_examiner, user_finder: user_finder, frequency_clusterer: frequency_clusterer) }
+	subject { LocationFinder.new(repo_lister: repo_lister, contributor_examiner: contributor_examiner, user_finder: user_finder, frequency_clusterer: frequency_clusterer) }
 
 	it "Should find clustered locations for a language" do
 		expect(repo_lister).to receive(:find_repositories_for_language).with(language).and_return(repo_list)
