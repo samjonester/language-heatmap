@@ -1,4 +1,5 @@
 require 'language_mapper/location_finder/repo_lister'
+require 'language_mapper/location_finder/contributor_examiner'
 
 class LocationFinder
 	
