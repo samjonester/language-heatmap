@@ -1,5 +1,6 @@
 require 'language_mapper/location_finder/repo_lister'
 require 'language_mapper/location_finder/contributor_examiner'
+require 'language_mapper/location_finder/user_finder'
 
 class LocationFinder
 	
@@ -7,7 +8,7 @@ class LocationFinder
 		@client = opts[:client] || Octokit::Client.new
 		@repo_lister = opts[:repo_lister] || RepoLister.new(client: @client)
 		@contributor_examiner = opts[:contributor_examiner] || ContributorExaminer.new(client: @client)
-		@user_finder = opts[:user_finder] || UserFinder.new(client: client)
+		@user_finder = opts[:user_finder] || UserFinder.new(client: @client)
 		@frequency_clusterer = opts[:frequency_clusterer] || FrequencyClusterer.new
 	end
 
