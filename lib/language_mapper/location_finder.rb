@@ -1,6 +1,7 @@
 require 'language_mapper/location_finder/repo_lister'
 require 'language_mapper/location_finder/contributor_examiner'
 require 'language_mapper/location_finder/user_finder'
+require 'frequency_clusterer'
 
 class LocationFinder
 	
