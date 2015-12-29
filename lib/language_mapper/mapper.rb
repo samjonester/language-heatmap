@@ -1,4 +1,5 @@
 require 'language_mapper/mapper/us_location_filterer'
+require 'language_mapper/mapper/countyfier'
 
 class Mapper
 
