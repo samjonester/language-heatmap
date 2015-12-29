@@ -1,3 +1,5 @@
+require 'language_mapper/mapper/us_location_filterer'
+
 class Mapper
 
 	def initialize(output_file_name, opts = {})
