@@ -1,9 +1,9 @@
 require 'language_mapper/mapper/us_location_filterer'
 
 describe USLocationFilterer do
-	let(:location_finder) { double('LocationFinder') }
+	let(:location_geocoder) { double('LocationGeocoder') }
 
-	subject { USLocationFilterer.new(location_finder: location_finder) }
+	subject { USLocationFilterer.new(location_geocoder: location_geocoder) }
 
 	context "Should filter non us locations" do
 		let(:all_locations) {[
@@ -13,7 +13,7 @@ describe USLocationFilterer do
 		let(:geolocation) { double('geocode', country_code: 'Not US') }
 
 		it "Should equal us locations" do
-			expect(location_finder).to receive(:geocode).with('town, not_us').and_return(geolocation)
+			expect(location_geocoder).to receive(:geocode).with('town, not_us').and_return(geolocation)
 
 				expect(subject.filter_us_locations(all_locations)).to eq(us_locations)
 		end
@@ -27,7 +27,7 @@ describe USLocationFilterer do
 		let(:geolocation) { double('geocode', country_code: 'US') }
 
 		it "Should equal us locations" do
-			expect(location_finder).to receive(:geocode).with('city, us').and_return(geolocation)
+			expect(location_geocoder).to receive(:geocode).with('city, us').and_return(geolocation)
 
 				expect(subject.filter_us_locations(all_locations)).to eq(us_locations)
 		end
