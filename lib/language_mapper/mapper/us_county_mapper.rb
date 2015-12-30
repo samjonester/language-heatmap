@@ -1,3 +1,5 @@
+require 'language_mapper/mapper/us_county_mapper/color_scaler'
+
 class USCountyMapper
 	def initialize(output_file_name, opts = {})
 		@output_file_name = output_file_name
