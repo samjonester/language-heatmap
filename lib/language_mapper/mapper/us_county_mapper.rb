@@ -1,4 +1,5 @@
 require 'language_mapper/mapper/us_county_mapper/color_scaler'
+require 'language_mapper/mapper/us_county_mapper/svg_mapper'
 
 class USCountyMapper
 	def initialize(output_file_name, opts = {})
