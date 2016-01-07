@@ -15,7 +15,7 @@ describe ContributorExaminer do
 	subject { ContributorExaminer.new(client: client) }
 
 	it "Should find unique contributors for repos" do
-		expect(client).to receive(:contributors).with('my/repo').and_return(contributors_list)
+		expect(client).to receive(:contributors).with('my/repo', per_page: 10000).and_return(contributors_list)
 
 		expect(subject.find_unique_contributors_for_repos(repos)).to eq(contributors_logins)
 	end

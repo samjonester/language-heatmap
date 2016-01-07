@@ -10,11 +10,10 @@ describe USCountyMapper do
 	subject { USCountyMapper.new(output_file_name, color_scaler: color_scaler, svg_mapper: svg_mapper) }
 
 	it "Should map counties" do
-		expect(svg_mapper).to receive(:load_file!).with(output_file_name)
-
 		expect(color_scaler).to receive(:create_scale!).with(counties)
 		expect(color_scaler).to receive(:color_for).with(2).and_return(:red)
 		expect(svg_mapper).to receive(:color_county!).with(:'county1', :red)
+		expect(svg_mapper).to receive(:close).and_return(output_file_name)
 
 		expect(subject.map(counties)).to eq(output_file_name)
 	end

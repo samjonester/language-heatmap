@@ -1,5 +1,7 @@
+require 'nokogiri'
+
 class SVGMapper
-	ORIGINAL_MAP = 'us_map.svg'
+	ORIGINAL_MAP = 'assets/us_map.svg'
 	XPATH_FOR_COUNTY = "//svg:path[@inkscape:label='Cuyahoga, OH']"
 	XPATH_NAMESPACES = {'svg': "http://www.w3.org/2000/svg", 'inkscape': "http://www.inkscape.org/namespaces/inkscape"}
 	
@@ -18,5 +20,6 @@ class SVGMapper
 
 	def close
 		File.write(@output_file_name, @doc.to_xml)
+		@output_file_name
 	end
 end

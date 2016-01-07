@@ -10,7 +10,7 @@ describe SVGMapper do
 
 	before(:each) do
 		file = double('file')
-		expect(File).to receive(:read).with('us_map.svg').and_return(file)
+		expect(File).to receive(:read).with('assets/us_map.svg').and_return(file)
 		expect(parser).to receive(:parse).with(file).and_return(doc)
 		expect(doc).to receive(:dup).and_return(doc)
 	end
@@ -39,7 +39,7 @@ describe SVGMapper do
 			expect(doc).to receive(:to_xml).and_return(xml)
 			expect(File).to receive(:write).with(output_file_name, xml)
 
-			subject.close
+			expect(subject.close).to eq(output_file_name)
 		end
 	end
 end
