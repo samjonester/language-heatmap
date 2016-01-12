@@ -3,7 +3,7 @@ require 'nokogiri-styles'
 
 class SVGMapper
 	ORIGINAL_MAP = 'assets/us_map.svg'
-	XPATH_FOR_COUNTY = "//svg:path[@inkscape:label='Cuyahoga, OH']"
+	XPATH_FOR_COUNTY = "//svg:path[@inkscape:label='%{county}']"
 	XPATH_NAMESPACES = {'svg': "http://www.w3.org/2000/svg", 'inkscape': "http://www.inkscape.org/namespaces/inkscape"}
 	
 	def initialize(output_file_name, opts = {})
@@ -13,10 +13,14 @@ class SVGMapper
 	end
 
 	def color_county!(county, color)
-		node = @doc.at_xpath(XPATH_FOR_COUNTY, XPATH_NAMESPACES)
-		style = node.styles
-		style['fill'] = color
-		node.styles = style
+		node = @doc.at_xpath(XPATH_FOR_COUNTY % {county: county}, XPATH_NAMESPACES)
+		unless node.nil?
+			style = node.styles
+			style['fill'] = color
+			node.styles = style
+		else
+			puts "ERROR! Cannot find county: #{county}"
+		end
 	end
 
 	def close

@@ -3,6 +3,7 @@ class ColorScaler
 		@max = frequencies.values.max
 		@mid_third = @max * 2/3.0
 		@low_third = @max / 3.0
+		puts "LOW THIRD < #{@low_third}\nMID THIRD < #{@mid_third}\nMAX < #{@max}"
 	end
 
 	def color_for(num)

@@ -6,7 +6,7 @@ class LanguageMapper
 	def initialize(opts = {})
 		@client = opts[:client] || Octokit::Client.new
 		@location_finder = opts[:location_finder] || LocationFinder.new(client: @client)
-		@mapper = opts[:mapper] || Mapper.new(client: @client)
+		@mapper = opts[:mapper] || Mapper.new('output.svg', client: @client)
 	end
 
 	def map_language(language)

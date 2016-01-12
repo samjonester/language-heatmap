@@ -90,6 +90,7 @@ DEPENDENCIES
   nokogiri
   nokogiri-styles
   octokit
+  pry
   rspec
 
 BUNDLED WITH

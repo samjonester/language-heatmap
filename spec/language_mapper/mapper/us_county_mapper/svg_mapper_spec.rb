@@ -24,7 +24,7 @@ describe SVGMapper do
 		let(:style) { double('style') }
 
 		it "Should map counties with color" do
-			expect(doc).to receive(:at_xpath).with("//svg:path[@inkscape:label='Cuyahoga, OH']", 'svg': "http://www.w3.org/2000/svg", 'inkscape': "http://www.inkscape.org/namespaces/inkscape").and_return(node)
+			expect(doc).to receive(:at_xpath).with("//svg:path[@inkscape:label='#{county}']", 'svg': "http://www.w3.org/2000/svg", 'inkscape': "http://www.inkscape.org/namespaces/inkscape").and_return(node)
 			expect(node).to receive(:styles).and_return(style)
 			expect(style).to receive(:[]=).with('fill', color)
 			expect(node).to receive(:styles=).with(style)

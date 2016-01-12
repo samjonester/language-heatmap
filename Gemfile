@@ -7,3 +7,5 @@ gem 'octokit'
 gem 'geocoder'
 gem 'nokogiri'
 gem 'nokogiri-styles'
+
+gem 'pry'

@@ -16,5 +16,5 @@ end
 
 Then(/^the heatmap is awesome sauce$/) do
 	puts "File Created At: #{@output_file_name}"
-	expect(File.exists?(@output_file_name)).to be_true
+	expect(File.exists?(@output_file_name)).to eq(true)
 end
