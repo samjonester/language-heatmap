@@ -1,5 +1,8 @@
 class Countyfier
-	def countify(locations)
-		locations.map{ |location| location.sub_country.gsub(" County", "")	}
+
+	def countyfy(location)
+		county_name = location.sub_state.gsub(" County", "")
+		state = location.state_code
+		"#{county_name}, #{state}"
 	end
 end

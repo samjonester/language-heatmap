@@ -5,7 +5,7 @@ class USLocationFilterer
 		@location_geocoder = opts[:location_geocoder] || LocationGeocoder.new
 	end
 
-	def filter_us_locations(all_locations)
-		all_locations.map{ |location| @location_geocoder.geocode(location) }.select{ |location| location.country_code == 'US' }
+	def is_us_location(geolocation)
+		!geolocation.nil? && geolocation.country_code == 'US'
 	end
 end

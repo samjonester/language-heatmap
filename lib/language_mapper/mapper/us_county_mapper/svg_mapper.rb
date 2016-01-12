@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'nokogiri-styles'
 
 class SVGMapper
 	ORIGINAL_MAP = 'assets/us_map.svg'
