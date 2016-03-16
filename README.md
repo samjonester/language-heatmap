@@ -1,5 +1,20 @@
-# cuddly-waffle
-Because Dire Straits inspired some lolz
+# Language Heatmap
+Trying to build a heatmap in the US of programming language hotspots
+
+
+## Goals
+- Practice Top-Down TDD
+- Practice good dependency management with constructor injection
+- Mock collaborators for small unit tests
+- Push state to edges of application and avoid stateful classes
+- Keep unit tests green
+- Use cucumber as integration test to drive development
+
+## Install and Run
+`bundle install`  
+**RSpec:** `rspec`  
+**Cucumber:** `cucumber`  
+
 
 A few good resources:   
 https://upload.wikimedia.org/wikipedia/commons/5/5f/USA_Counties_with_FIPS_and_names.svg  
